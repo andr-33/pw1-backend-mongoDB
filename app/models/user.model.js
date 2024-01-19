@@ -3,10 +3,7 @@ const userModel = (Moongose, Schema) => {
         username: String,
         email: String,
         password: String,
-        roles: [{
-            type: Schema.Types.ObjectId,
-            ref: 'Role'
-        }]
+        roles: [String]
     });
 
     const User = Moongose.model('User', UserShema);
