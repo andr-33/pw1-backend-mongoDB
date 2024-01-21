@@ -11,6 +11,5 @@ db.connection = Moongose.connect(mongodbUrl);
 
 db.user = userModel(Moongose, Schema);
 db.role = roleModel(Moongose, Schema);
-db.ROLES = ['user', 'admin', 'moderator'];
 
 module.exports = db;
