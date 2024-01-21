@@ -13,4 +13,30 @@ userRouter.post(
     userController.signup
 );
 
+userRouter.get('/api/test/all', userController.allAccess);
+
+userRouter.get(
+    '/api/test/user',
+    authJWT.verifyToken,
+    userController.userBoard
+);
+
+userRouter.get(
+    '/api/test/moderator',
+    [
+        authJWT.verifyToken,
+        authJWT.isModerator
+    ],
+    userController.moderatorBoard
+);
+
+userRouter.get(
+    '/api/test/admin',
+    [
+        authJWT.verifyToken,
+        authJWT.isAdmin
+    ],
+    userController.adminBoard
+);
+
 module.exports = userRouter;
