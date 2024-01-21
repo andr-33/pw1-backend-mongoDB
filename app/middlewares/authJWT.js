@@ -93,3 +93,5 @@ authJWT.isModeratorOrAdmin = async (req, res, next) => {
         res.status(500).send('Ups! Something is wrong');
     }
 };
+
+module.exports = authJWT;

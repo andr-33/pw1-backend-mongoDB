@@ -2,7 +2,6 @@ const db = require('../models/index.model');
 const bcrypt = require('bcryptjs');
 
 const User = db.user;
-const Role = db.role;
 
 const userController = {};
 
