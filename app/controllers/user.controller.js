@@ -16,21 +16,10 @@ userController.signup = async (req, res) => {
         });
 
         if (roles.length) {
-            const availableRoles = await Role.find({
-                name: {
-                    $in: roles
-                }
-            });
-
-            user.roles = availableRoles.map(role => {
-                return role.name
-            });
+            user.roles = roles;
         }
         else {
-            const defaultRole = await Role.findOne({
-                name: 'user'
-            });
-            user.roles = [defaultRole.name];
+            user.roles = ['user'];
         }
 
         await user.save();
